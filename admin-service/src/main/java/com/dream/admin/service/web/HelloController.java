@@ -4,6 +4,7 @@ import com.dream.admin.service.api.hello.HelloServiceApi;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
 import java.util.logging.Logger;
 
 /**
@@ -20,6 +21,13 @@ public class HelloController implements HelloServiceApi {
 
     @Override
     public String hello(@RequestParam("name") String name) {
+        int sleepTime = new Random().nextInt(3000);
+        logger.info("sleepTime:" + sleepTime);
+        try {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         logger.info("你好，"+name);
         return "你好，"+name;
     }

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
- * <p>Title:      DreamServiceApplication. </p>
+ * <p>Title:      ServerApplication. </p>
  * <p>Description 启动类 </p>
  *
  * @author         <a href="liqd163@163.com"/>李清栋</a>
