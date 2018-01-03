@@ -21,7 +21,7 @@ public class HelloController implements HelloServiceApi {
 
     @Override
     public String hello(@RequestParam("name") String name) {
-        int sleepTime = new Random().nextInt(3000);
+        int sleepTime = new Random().nextInt(6000);
         logger.info("sleepTime:" + sleepTime);
         try {
             Thread.sleep(sleepTime);
