@@ -8,7 +8,7 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>dream-admin-service</artifactId>
+    <artifactId>admin-service</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -33,12 +33,56 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <!-- MYSQL 链接的连接的依赖包 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.21</version>
+        </dependency>
+        <!-- spring jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--Mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis.spring.version}</version>
+        </dependency>
+        <!--pagehelper-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <!--mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 
         <!-- 私有包 -->
         <dependency>
             <groupId>com.dream.come</groupId>
             <artifactId>admin-service-api</artifactId>
             <version>${admin.service.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dream.come</groupId>
+            <artifactId>dream-core</artifactId>
+            <version>${dream.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dream.come</groupId>
+            <artifactId>dream.bean</artifactId>
+            <version>${dream.bean.version}</version>
         </dependency>
     </dependencies>
 

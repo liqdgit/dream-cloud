@@ -22,6 +22,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.dream.come</groupId>
+            <artifactId>dream-core</artifactId>
+            <version>${dream.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dream.come</groupId>
+            <artifactId>dream.bean</artifactId>
+            <version>${dream.bean.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
