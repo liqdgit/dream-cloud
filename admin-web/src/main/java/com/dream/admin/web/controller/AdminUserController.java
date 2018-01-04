@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "admin/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-public class AdminUserController {
+public class AdminUserController extends BaseController {
 
     @Autowired
     private AdminUserService adminUserService;
