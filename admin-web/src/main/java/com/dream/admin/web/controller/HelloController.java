@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @CreateDate     2017/12/25 14:59
  */
 @RestController
-@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "${urlPrefix}/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class HelloController {
 
     @Autowired

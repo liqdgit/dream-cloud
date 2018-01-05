@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @CreateDate     2018/1/4 17:51
  */
 @Controller
+@RequestMapping(value = "${urlPrefix}/")
 public class IndexController extends BaseController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

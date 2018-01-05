@@ -31,7 +31,7 @@
         <!-- spring-cloud 服务注册与发现模块 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
         <!-- MYSQL 链接的连接的依赖包 -->
         <dependency>

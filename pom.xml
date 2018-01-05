@@ -15,6 +15,7 @@
         <module>admin-service-api</module>
         <module>dream-core</module>
         <module>dream-bean</module>
+        <module>api-gateway</module>
     </modules>
 
     <parent>
