@@ -1,6 +1,7 @@
 package com.dream.bean.admin;
 
 import com.dream.bean.base.BaseBean;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -11,8 +12,10 @@ import java.io.Serializable;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 11:31
  */
+@Data
 public class AdminUser extends BaseBean implements Serializable {
 
+    private static final long serialVersionUID = 1944562967238378382L;
     /**
      * 姓名
      */
@@ -28,36 +31,4 @@ public class AdminUser extends BaseBean implements Serializable {
      */
     private String loginPwd;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getLoginName() {
-        return loginName;
-    }
-
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    public String getLoginPwd() {
-        return loginPwd;
-    }
-
-    public void setLoginPwd(String loginPwd) {
-        this.loginPwd = loginPwd;
-    }
-
-    @Override
-    public String toString() {
-        return "AdminUser{" +
-                "userName='" + userName + '\'' +
-                ", loginName='" + loginName + '\'' +
-                ", loginPwd='" + loginPwd + '\'' +
-                "} " + super.toString();
-    }
 }

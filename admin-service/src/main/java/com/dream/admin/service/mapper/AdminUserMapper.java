@@ -1,7 +1,7 @@
 package com.dream.admin.service.mapper;
 
 import com.dream.bean.admin.AdminUser;
-import com.dream.core.mybatis.DreamMapper;
+import com.dream.core.base.DreamMapper;
 
 import java.util.List;
 
@@ -12,16 +12,16 @@ import java.util.List;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 11:33
  */
-public interface AdminUserMapper extends DreamMapper {
+public interface AdminUserMapper extends DreamMapper<AdminUser> {
     
     /**
      * <p>Title:      查询所有用户. </p>
      * <p>Description </p>
      *
-     * @param         
+     * @param
      * @author        <a href="liqd163@163.com"/>李清栋</a>
      * @CreateDate    2018/1/4 13:15
-     * @return        
+     * @return
      */
     List<AdminUser> queryList();
 }
