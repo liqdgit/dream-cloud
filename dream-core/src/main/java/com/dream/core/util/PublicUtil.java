@@ -1,4 +1,4 @@
-package com.dream.admin.web.util;
+package com.dream.core.util;
 
 import org.apache.commons.lang3.StringUtils;
 

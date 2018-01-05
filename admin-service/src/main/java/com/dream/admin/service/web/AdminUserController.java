@@ -3,8 +3,9 @@ package com.dream.admin.service.web;
 import com.dream.admin.service.api.admin.AdminUserServiceApi;
 import com.dream.admin.service.service.AdminUserService;
 import com.dream.bean.admin.AdminUser;
-import com.dream.core.common.wrapper.WrapMapper;
-import com.dream.core.common.wrapper.Wrapper;
+import com.dream.core.annotation.WebLog;
+import com.dream.core.wrapper.WrapMapper;
+import com.dream.core.wrapper.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class AdminUserController implements AdminUserServiceApi {
     @Autowired
     private AdminUserService adminUserService;
 
+    @WebLog
     @Override
     public Wrapper<List<AdminUser>> queryList() {
         try {

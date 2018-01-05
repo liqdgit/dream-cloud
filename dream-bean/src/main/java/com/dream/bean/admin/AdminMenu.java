@@ -36,4 +36,13 @@ public class AdminMenu extends BaseBean implements Serializable {
      */
     private String desc;
 
+    @Override
+    public String toString() {
+        return "AdminMenu{" +
+                "name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", pid=" + pid +
+                ", desc='" + desc + '\'' +
+                "} " + super.toString();
+    }
 }

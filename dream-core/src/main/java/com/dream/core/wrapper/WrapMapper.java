@@ -1,4 +1,5 @@
-package com.dream.core.common.wrapper;
+package com.dream.core.wrapper;
+
 
 /**
  * <p>Title:      WrapMapper. </p>

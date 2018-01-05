@@ -1,4 +1,4 @@
-package com.dream.admin.web.controller;
+package com.dream.core.base;
 
 /**
  * <p>Title:      BaseController. </p>

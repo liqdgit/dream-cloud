@@ -1,6 +1,6 @@
-package com.dream.admin.web.aop;
+package com.dream.core.aop;
 
-import com.dream.admin.web.util.PublicUtil;
+import com.dream.core.util.PublicUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,6 +14,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.annotation.Annotation;
 import java.util.Arrays;
 
 /**
@@ -30,7 +31,9 @@ public class WebRequestAspect {
 
     private Logger logger = LoggerFactory.getLogger(WebRequestAspect.class);
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping)")
+    private static final ThreadLocal<Long> threadLocal = new ThreadLocal<>();
+
+    @Pointcut("@annotation(com.dream.core.annotation.WebLog)")
     public void webLog() {
     }
 
@@ -40,6 +43,9 @@ public class WebRequestAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         // 记录下请求内容
+        logger.info("------------------------------------------------start-------------------------------------------------");
+        threadLocal.set(System.currentTimeMillis());
+        logger.info("---> start time："+ System.currentTimeMillis());
         logger.info("---> 请求信息：");
         logger.info("url : " + request.getRequestURL().toString());
         logger.info("http_method : " + request.getMethod());
@@ -54,8 +60,13 @@ public class WebRequestAspect {
         HttpServletResponse response = attributes.getResponse();
 
         // 处理完请求，返回内容
+        Long nowTime = System.currentTimeMillis();
+        Long l = nowTime - threadLocal.get();
+        logger.info("---> end time："+ nowTime);
         logger.info("---> 响应信息：");
         logger.info("response : " + ret);
         logger.info("status : " + response.getStatus());
+        logger.info("总耗时 : " + l);
+        logger.info("------------------------------------------------end-------------------------------------------------");
     }
 }

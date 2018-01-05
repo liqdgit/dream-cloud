@@ -1,4 +1,4 @@
-package com.dream.core.common.wrapper;
+package com.dream.core.wrapper;
 
 import java.io.Serializable;
 

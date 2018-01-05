@@ -31,7 +31,7 @@
   <select id="queryList" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from dream_admin_user and is_delete=0
+    from dream_admin_user WHERE is_delete=0
   </select>
 
   <insert id="insert" parameterType="com.dream.bean.admin.AdminUser" >

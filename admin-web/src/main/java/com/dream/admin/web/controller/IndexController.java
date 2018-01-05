@@ -1,5 +1,7 @@
 package com.dream.admin.web.controller;
 
+import com.dream.core.annotation.WebLog;
+import com.dream.core.base.BaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ public class IndexController extends BaseController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @WebLog
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
         logger.info("-->index:进入index页");

@@ -2,7 +2,9 @@ package com.dream.admin.web.controller;
 
 import com.dream.admin.web.service.AdminUserService;
 import com.dream.bean.admin.AdminUser;
-import com.dream.core.common.wrapper.Wrapper;
+import com.dream.core.annotation.WebLog;
+import com.dream.core.base.BaseController;
+import com.dream.core.wrapper.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,7 @@ public class AdminUserController extends BaseController {
     @Autowired
     private AdminUserService adminUserService;
 
+    @WebLog
     @ResponseBody
     @RequestMapping("queryList")
     public Wrapper<List<AdminUser>> queryList(){
