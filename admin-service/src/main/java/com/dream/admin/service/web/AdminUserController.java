@@ -34,7 +34,7 @@ public class AdminUserController implements AdminUserServiceApi {
             List<AdminUser> list = adminUserService.queryList();
             return WrapMapper.success(list);
         } catch (Exception e) {
-            logger.error("--queryList:查询所有管理员用户异常", e);
+            logger.error("--queryList:查询所有管理员用户异常", e.getMessage(), e);
             return WrapMapper.error();
         }
     }

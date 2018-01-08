@@ -1,11 +1,11 @@
 package com.dream.admin.web;
 
-import com.dream.core.aop.WebRequestAspect;
+import com.dream.core.web.DreamApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.ApplicationContext;
 
 /**
  * <p>Title:      ServerApplication. </p>
@@ -20,7 +20,8 @@ import org.springframework.context.annotation.Bean;
 public class AdminWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AdminWebApplication.class, args);
+		ApplicationContext app = SpringApplication.run(AdminWebApplication.class, args);
+		DreamApplicationContext.setApplicationContext(app);
 	}
 
 }

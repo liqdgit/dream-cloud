@@ -8,7 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * <p>Title:      AuthInterceptor. </p>
+ * <p>Description 鉴权 拦截器 </p>
+ *
+ * @author         <a href="liqd163@163.com"/>李清栋</a>
+ * @CreateDate     2018/1/5 18:23
+ */
 @Service
 public class AuthInterceptor implements HandlerInterceptor {
 
@@ -16,9 +22,12 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        if(httpServletRequest.getMethod().equals("OPTIONS")){
+        final String method = "OPTIONS";
+        if(method.equals(httpServletRequest.getMethod())){
             return false;
         }
+
+
         return true;
     }
 

@@ -2,6 +2,7 @@ package com.dream.admin.web.controller;
 
 import com.dream.admin.web.service.HelloService;
 import com.dream.core.annotation.WebLog;
+import com.dream.core.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @CreateDate     2017/12/25 14:59
  */
 @RestController
-@RequestMapping(value = "${urlPrefix}/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-public class HelloController {
+@RequestMapping(value = "${urlPrefix}/")
+public class HelloController extends BaseController {
 
     @Autowired
     private HelloService helloService;

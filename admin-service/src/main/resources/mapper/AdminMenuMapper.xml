@@ -171,4 +171,9 @@
     where id = #{id,jdbcType=INTEGER} and version = #{version,jdbcType=INTEGER}
   </update>
 
+  <select id="queryPageList" parameterType="com.dream.bean.admin.AdminMenu" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM dream_admin_menu WHERE is_delete=0
+  </select>
 </mapper>

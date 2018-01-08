@@ -27,4 +27,11 @@ public class IndexController extends BaseController {
         logger.info("-->index:进入index页");
         return "/index";
     }
+
+    @WebLog
+    @RequestMapping(value = "/index/main", method = RequestMethod.GET)
+    public String indexMain(){
+        logger.info("-->index:进入index首页");
+        return "/index_main";
+    }
 }
