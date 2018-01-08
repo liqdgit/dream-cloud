@@ -11,6 +11,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 13:52
  */
-@FeignClient(value = "ADMIN-SERVICE", fallback = AdminUserFallback.class)
+@FeignClient(value = "${service.admin}", fallback = AdminUserFallback.class)
 public interface AdminUserService extends AdminUserServiceApi {
 }
