@@ -17,7 +17,7 @@ public class MyAdapter extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/", "login");
+        registry.addRedirectViewController("/", "/admin/login");
         super.addViewControllers( registry );
     }
 }

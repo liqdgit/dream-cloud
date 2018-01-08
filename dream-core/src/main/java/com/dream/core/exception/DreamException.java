@@ -27,6 +27,11 @@ public class DreamException extends Exception {
         this.message = message;
     }
 
+    public DreamException(String message, Throwable e){
+        super(message, e);
+        this.message = message;
+    }
+
     private Integer code;
 
     private String message;

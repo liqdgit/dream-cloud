@@ -62,7 +62,7 @@ public class Wrapper<T> implements Serializable {
     }
 
     public boolean is() {
-        if (code == null || code != 200) {
+        if (code == null || !code.equals(ResultCode.SUCCESS.getCode())) {
             return false;
         }
         return true;

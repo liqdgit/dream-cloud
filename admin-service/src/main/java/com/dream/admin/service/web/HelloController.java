@@ -2,11 +2,12 @@ package com.dream.admin.service.web;
 
 import com.dream.admin.service.api.hello.HelloServiceApi;
 import com.dream.core.annotation.WebLog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
-import java.util.logging.Logger;
 
 /**
  * <p>Title:      HelloController. </p>
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
 @RestController
 public class HelloController implements HelloServiceApi {
 
-    private final Logger logger = Logger.getLogger(getClass().toString());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @WebLog
     @Override

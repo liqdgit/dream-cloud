@@ -48,4 +48,18 @@ public class AdminUserService implements DreamDaoService<AdminUser> {
     public int updateByIdSelective(AdminUser record) {
         return adminUserMapper.updateByIdSelective(record);
     }
+
+
+    /**
+     * <p>Title:      根据登录名密码查询. </p>
+     * <p>Description </p>
+     *
+     * @param         adminUser
+     * @author        <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate    2018/1/8 15:55
+     * @return
+     */
+    public AdminUser queryByLoginNameAndPwd(AdminUser adminUser){
+        return adminUserMapper.queryByLoginNameAndPwd(adminUser);
+    }
 }

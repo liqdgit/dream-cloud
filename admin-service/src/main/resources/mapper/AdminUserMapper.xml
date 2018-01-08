@@ -6,6 +6,7 @@
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="login_name" property="loginName" jdbcType="VARCHAR" />
     <result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
+    <result column="token_key" property="tokenKey" jdbcType="VARCHAR" />
     <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
     <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -17,7 +18,7 @@
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, user_name, login_name, login_pwd, create_user_id, create_user_name, create_time, 
+    id, user_name, login_name, login_pwd, token_key, create_user_id, create_user_name, create_time,
     update_user_id, update_user_name, update_time, version, is_delete
   </sql>
 
@@ -34,14 +35,21 @@
     from dream_admin_user WHERE is_delete=0
   </select>
 
+  <select id="queryByLoginNameAndPwd" parameterType="com.dream.bean.admin.AdminUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from dream_admin_user WHERE is_delete=0
+    AND login_name = #{loginName} and login_pwd = #{loginPwd}
+  </select>
+
   <insert id="insert" parameterType="com.dream.bean.admin.AdminUser" >
     insert into dream_admin_user (id, user_name, login_name, 
-      login_pwd, create_user_id, create_user_name, 
+      login_pwd,token_key, create_user_id, create_user_name,
       create_time, update_user_id, update_user_name, 
       update_time, version, is_delete
       )
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, 
-      #{loginPwd,jdbcType=VARCHAR}, #{createUserId,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR}, 
+      #{loginPwd,jdbcType=VARCHAR}, #{tokenKey}, #{createUserId,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=INTEGER}, #{updateUserName,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}
       )
@@ -61,6 +69,9 @@
       </if>
       <if test="loginPwd != null" >
         login_pwd,
+      </if>
+      <if test="tokenKey != null" >
+        token_key,
       </if>
       <if test="createUserId != null" >
         create_user_id,
@@ -99,6 +110,9 @@
       </if>
       <if test="loginPwd != null" >
         #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="tokenKey != null" >
+        #{tokenKey,jdbcType=VARCHAR},
       </if>
       <if test="createUserId != null" >
         #{createUserId,jdbcType=INTEGER},

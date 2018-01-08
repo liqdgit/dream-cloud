@@ -23,7 +23,7 @@ public class DreamJWT {
      * @CreateDate    2018/1/5 17:32
      * @return        
      */
-    public String createJWT(DreamToken dreamToken){
+    public static String createJWT(DreamToken dreamToken){
         String token = Jwts.builder()
                 .setSubject(dreamToken.getSubject())
                 .claim(dreamToken.getDataKey(), dreamToken.getData())
@@ -42,7 +42,7 @@ public class DreamJWT {
      * @CreateDate    2018/1/5 17:32
      * @return        
      */
-    public Claims parseJWT(String tokenKey, String token){
+    public static Claims parseJWT(String tokenKey, String token){
         final Claims claims = Jwts.parser().setSigningKey(tokenKey).parseClaimsJws(token).getBody();
         return claims;
     }

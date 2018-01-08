@@ -31,12 +31,18 @@ public class AdminUser extends BaseBean implements Serializable {
      */
     private String loginPwd;
 
+    /**
+     * token私钥
+     */
+    private String tokenKey;
+
     @Override
     public String toString() {
         return "AdminUser{" +
                 "userName='" + userName + '\'' +
                 ", loginName='" + loginName + '\'' +
                 ", loginPwd='" + loginPwd + '\'' +
+                ", tokenKey='" + tokenKey + '\'' +
                 "} " + super.toString();
     }
 }

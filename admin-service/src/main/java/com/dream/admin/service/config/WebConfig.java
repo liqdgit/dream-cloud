@@ -1,6 +1,7 @@
 package com.dream.admin.service.config;
 
 import com.dream.core.aop.WebRequestAspect;
+import com.dream.core.common.Constant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,5 +18,10 @@ public class WebConfig {
     @Bean
     public WebRequestAspect webRequestAspect(){
         return new WebRequestAspect();
+    }
+
+    @Bean
+    public Constant constant(){
+        return new Constant();
     }
 }

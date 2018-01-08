@@ -31,6 +31,10 @@ public class WrapMapper {
         return wrap(resultCode.getCode(), resultCode.getMessage());
     }
 
+    public static Wrapper error(String message) {
+        return wrap(Wrapper.ResultCode.ERROR.getCode(), message);
+    }
+
     public static Wrapper error() {
         return wrap(Wrapper.ResultCode.ERROR.getCode(), Wrapper.ResultCode.ERROR.getMessage());
     }
