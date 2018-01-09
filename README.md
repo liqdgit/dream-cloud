@@ -18,3 +18,4 @@ springcloud feign 注入bean null问题 解决办法：
 如果swagger版本是v2.x，那么请将升级swagger版本到2.5.0以上即可。 详情请看：http://blog.csdn.net/caidchen/article/details/73949624
 ### 调用服务时出现404
 服务提供者Controller注解必须使用@RestController，不能使用@Controller，否则找不到该服务
+### 使用Feign接口调用时，如果是多个参数需要用@RequestParam注解或者其他，否则调不通
