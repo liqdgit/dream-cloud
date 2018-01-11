@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @CreateDate     2017/12/25 14:59
  */
 @RestController
-@RequestMapping(value = "${urlPrefix}/")
+@RequestMapping(value = "${managerUrlPrefix}/")
 public class HelloController extends BaseController {
 
     @Autowired

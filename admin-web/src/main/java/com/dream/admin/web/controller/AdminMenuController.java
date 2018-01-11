@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @CreateDate     2018/1/8 13:29
  */
 @Controller
-@RequestMapping(value = "${urlPrefix}/menu")
+@RequestMapping(value = "${managerUrlPrefix}/menu")
 public class AdminMenuController extends BaseController {
 
     @Autowired

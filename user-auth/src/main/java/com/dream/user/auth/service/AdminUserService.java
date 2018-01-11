@@ -1,7 +1,7 @@
-package com.dream.admin.web.service;
+package com.dream.user.auth.service;
 
 import com.dream.admin.service.api.admin.AdminUserServiceApi;
-import com.dream.admin.web.fallback.AdminUserFallback;
+import com.dream.user.auth.fallback.AdminUserFallback;
 import org.springframework.cloud.netflix.feign.FeignClient;
 
 /**
@@ -11,6 +11,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 13:52
  */
-@FeignClient(value = "${dream.application.name.manager-service-server}", fallback = AdminUserFallback.class)
+@FeignClient(value = "${service.admin}", fallback = AdminUserFallback.class)
 public interface AdminUserService extends AdminUserServiceApi {
 }

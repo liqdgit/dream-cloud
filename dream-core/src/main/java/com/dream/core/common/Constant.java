@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 /**
  * <p>Title:      Constant. </p>
  * <p>Description 常量类 </p>
@@ -17,15 +19,15 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = Constant.PREFIX)
 public class Constant {
 
-    public static final String PREFIX = "dream.admin";
+    public static final String PREFIX = "dream";
 
-    private String AUTK;
+    private String jwtKey;
 
-    private String CAUTK;
+    private String tokenCookieKey;
 
     private String domain;
 
-    public static final String TOKEN_DATA_KEY = "adminUser";
+    private String tokenDataKey;
 
     public static final String PATH = "/";
 
@@ -36,4 +38,10 @@ public class Constant {
     public static final Long HOUR_TIME = MINUTE_TIME * 60;
 
     public static final Long DAY_TIME = HOUR_TIME * 24;
+
+    public static final String METHOD_POST = "POST";
+
+    public static final String METHOD_GET = "GET";
+
+    public static final String ajaxType = "XMLHttpRequest";
 }

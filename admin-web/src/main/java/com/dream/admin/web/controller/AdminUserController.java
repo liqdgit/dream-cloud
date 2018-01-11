@@ -21,7 +21,7 @@ import java.util.List;
  * @CreateDate     2018/1/4 13:53
  */
 @Controller
-@RequestMapping(value = "${urlPrefix}/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "${managerUrlPrefix}/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class AdminUserController extends BaseController {
 
     @Autowired

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate 2018/1/8 16:19
  */
-@RequestMapping("/api/admin/login")
+@RequestMapping("/api/${managerUrlPrefix}/login")
 public interface AdminLoginServiceApi {
 
     /**

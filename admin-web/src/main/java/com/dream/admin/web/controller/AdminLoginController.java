@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * @CreateDate     2018/1/8 18:22
  */
 @Controller
-@RequestMapping(value = "${urlPrefix}/")
+@RequestMapping(value = "${managerUrlPrefix}/")
 public class AdminLoginController extends BaseController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

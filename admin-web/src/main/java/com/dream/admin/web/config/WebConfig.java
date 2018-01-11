@@ -2,6 +2,9 @@ package com.dream.admin.web.config;
 
 import com.dream.core.aop.WebRequestAspect;
 import com.dream.core.common.Constant;
+import com.dream.core.common.DreamApplicationNameConfigManager;
+import com.dream.core.common.DreamIPConfigManager;
+import com.dream.core.common.DreamPortConfigManager;
 import com.dream.core.web.DreamServletContextListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +25,6 @@ import javax.servlet.ServletContextEvent;
 @Configuration
 public class WebConfig {
 
-    @Value("${urlPrefix}")
-    private String urlPrefix;
-
     @Bean
     public WebRequestAspect webRequestAspect(){
         return new WebRequestAspect();
@@ -38,10 +38,6 @@ public class WebConfig {
 
             @Override
             public void init(ServletContextEvent servletContextEvent) {
-                ServletContext servletContext = servletContextEvent.getServletContext();
-                servletContext.setAttribute("urlPrefix", urlPrefix);
-                logger.info("--> 服务器初始化开始...");
-                logger.info("--> urlPrefix:{}", urlPrefix);
             }
 
             @Override
@@ -56,5 +52,20 @@ public class WebConfig {
     @Bean
     public Constant constant(){
         return new Constant();
+    }
+
+    @Bean
+    public DreamApplicationNameConfigManager dreamApplicationNameConfigManager(){
+        return new DreamApplicationNameConfigManager();
+    }
+
+    @Bean
+    public DreamIPConfigManager dreamIPConfigManager(){
+        return new DreamIPConfigManager();
+    }
+
+    @Bean
+    public DreamPortConfigManager dreamPortConfigManager(){
+        return new DreamPortConfigManager();
     }
 }

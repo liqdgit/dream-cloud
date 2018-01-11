@@ -11,6 +11,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/8 11:34
  */
-@FeignClient(value = "${service.admin}", fallback = AdminMenuFallback.class)
+@FeignClient(value = "${dream.application.name.manager-service-server}", fallback = AdminMenuFallback.class)
 public interface AdminMenuService extends AdminMenuServiceApi {
 }

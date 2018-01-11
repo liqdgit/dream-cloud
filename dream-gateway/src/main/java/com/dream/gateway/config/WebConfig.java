@@ -1,6 +1,7 @@
 package com.dream.gateway.config;
 
 import com.dream.core.aop.WebRequestAspect;
+import com.dream.core.common.Constant;
 import com.dream.core.common.DreamApplicationNameConfigManager;
 import com.dream.core.common.DreamIPConfigManager;
 import com.dream.core.common.DreamPortConfigManager;
@@ -20,6 +21,11 @@ public class WebConfig {
     @Bean
     public WebRequestAspect webRequestAspect() {
         return new WebRequestAspect();
+    }
+
+    @Bean
+    public Constant constant(){
+        return new Constant();
     }
 
     @Bean

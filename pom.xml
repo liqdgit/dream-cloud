@@ -15,7 +15,7 @@
         <module>admin-service-api</module>
         <module>dream-core</module>
         <module>dream-bean</module>
-        <module>api-gateway</module>
+        <module>dream-gateway</module>
         <module>user-auth</module>
         <module>user-auth-api</module>
     </modules>

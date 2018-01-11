@@ -44,9 +44,9 @@ public class AdminLoginService {
         CheckArgumentUtil.checkArgument(adminUser != null, "用户名或密码错误");
         DreamToken dreamToken = new DreamToken();
         dreamToken.setSubject(loginName);
-        String tokenKey = constant.getAUTK() + adminUser.getTokenKey();
+        String tokenKey = constant.getJwtKey() + adminUser.getTokenKey();
         dreamToken.setTokenKey(tokenKey);
-        dreamToken.setDataKey(Constant.TOKEN_DATA_KEY);
+        dreamToken.setDataKey(constant.getTokenDataKey());
         dreamToken.setData(JacksonUtil.obj2json(adminUser));
         Date now = new Date();
         dreamToken.setNow(now);

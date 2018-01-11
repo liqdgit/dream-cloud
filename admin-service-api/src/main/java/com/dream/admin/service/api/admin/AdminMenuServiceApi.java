@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/8 11:20
  */
-@RequestMapping("/api/admin/menu")
+@RequestMapping("/api/${managerUrlPrefix}/menu")
 public interface AdminMenuServiceApi {
 
     /**

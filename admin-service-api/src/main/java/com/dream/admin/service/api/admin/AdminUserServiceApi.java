@@ -13,7 +13,7 @@ import java.util.List;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 13:19
  */
-@RequestMapping("/api/admin/user")
+@RequestMapping("/api/${managerUrlPrefix}/user")
 public interface AdminUserServiceApi {
 
     /**
