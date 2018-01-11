@@ -1,9 +1,13 @@
 package com.dream.gateway.filter;
 
 import com.dream.core.annotation.WebLog;
+import com.dream.core.common.DreamApplicationNameConfigManager;
+import com.dream.core.common.DreamIPConfigManager;
+import com.dream.core.common.DreamPortConfigManager;
 import com.netflix.zuul.ZuulFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,6 +21,13 @@ import org.springframework.stereotype.Component;
 public class GateWayPreFilter extends ZuulFilter {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private DreamPortConfigManager dreamPortConfigManager;
+    @Autowired
+    private DreamIPConfigManager dreamIPConfigManager;
+    @Autowired
+    private DreamApplicationNameConfigManager dreamApplicationNameConfigManager;
 
     @Override
     public String filterType() {
@@ -36,6 +47,9 @@ public class GateWayPreFilter extends ZuulFilter {
     @WebLog
     @Override
     public Object run() {
+        logger.info("dreamApplicationNameConfigManager:{}",dreamApplicationNameConfigManager);
+        logger.info("dreamPortConfigManager:{}",dreamPortConfigManager);
+        logger.info("dreamIPConfigManager:{}",dreamIPConfigManager);
         return null;
     }
 }
