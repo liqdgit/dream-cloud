@@ -2,15 +2,15 @@ package com.dream.admin.web.controller;
 
 import com.dream.admin.web.service.AdminMenuService;
 import com.dream.bean.admin.AdminMenu;
-import com.dream.core.annotation.WebLog;
+import com.dream.core.annotation.DreamRequest;
 import com.dream.core.base.BaseController;
 import com.dream.core.common.Page;
 import com.dream.core.wrapper.Wrapper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>Title:      AdminMenuController. </p>
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/8 13:29
  */
-@Controller
-@RequestMapping(value = "${managerUrlPrefix}/menu")
+@RestController
+@RequestMapping(value = "${managerUrlPrefix}/menu", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class AdminMenuController extends BaseController {
 
     @Autowired
@@ -31,8 +31,7 @@ public class AdminMenuController extends BaseController {
         return "menu/index";
     }
 
-    @WebLog
-    @ResponseBody
+    @DreamRequest
     @RequestMapping(value = "queryPageList")
     public Wrapper<PageInfo<AdminMenu>> queryPageList(Page<AdminMenu> page){
         Wrapper<PageInfo<AdminMenu>> wrapper = adminMenuService.queryPageList(page);

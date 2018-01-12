@@ -2,7 +2,7 @@ package com.dream.admin.service.web;
 
 import com.dream.admin.service.api.admin.AdminLoginServiceApi;
 import com.dream.admin.service.service.AdminLoginService;
-import com.dream.core.annotation.WebLog;
+import com.dream.core.annotation.DreamRequest;
 import com.dream.core.exception.DreamException;
 import com.dream.core.wrapper.WrapMapper;
 import com.dream.core.wrapper.Wrapper;
@@ -27,7 +27,7 @@ public class AdminLoginController implements AdminLoginServiceApi {
     @Autowired
     private AdminLoginService loginService;
 
-    @WebLog
+    @DreamRequest
     @Override
     public Wrapper<String> login(String loginName, String loginPwd) {
         try {

@@ -1,8 +1,8 @@
 package com.dream.admin.service.web;
 
-import com.dream.admin.service.api.admin.AdminUserServiceApi;
-import com.dream.admin.service.service.AdminUserService;
-import com.dream.bean.admin.AdminUser;
+import com.dream.admin.service.api.admin.ApiManagerServiceApi;
+import com.dream.admin.service.service.ApiManagerService;
+import com.dream.bean.admin.ApiManager;
 import com.dream.core.annotation.DreamRequest;
 import com.dream.core.wrapper.WrapMapper;
 import com.dream.core.wrapper.Wrapper;
@@ -11,30 +11,33 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.ArrayList;
+
+
 /**
- * <p>Title:      AdminUserController. </p>
+ * <p>Title:      ApiManagerController. </p>
  * <p>Description TODO </p>
  *
  * @author         <a href="liqd163@163.com"/>李清栋</a>
- * @CreateDate     2018/1/4 16:10
+ * @CreateDate     2018/1/11 17:19
  */
 @RestController
-public class AdminUserController implements AdminUserServiceApi {
+public class ApiManagerController implements ApiManagerServiceApi {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private AdminUserService adminUserService;
+    private ApiManagerService apiManagerService;
+
 
     @DreamRequest
     @Override
-    public Wrapper<List<AdminUser>> queryList() {
+    public Wrapper insert(ArrayList<ApiManager> list) {
         try {
-            List<AdminUser> list = adminUserService.queryList();
-            return WrapMapper.success(list);
+            apiManagerService.insert(list);
+            return WrapMapper.success();
         } catch (Exception e) {
-            logger.error("--queryList:查询所有管理员用户异常", e.getMessage(), e);
+            logger.error("--insert:添加失败", e.getMessage(), e);
             return WrapMapper.error();
         }
     }

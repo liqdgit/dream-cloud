@@ -1,6 +1,5 @@
 package com.dream.gateway.filter;
 
-import com.dream.core.annotation.WebLog;
 import com.dream.core.common.DreamApplicationNameConfigManager;
 import com.dream.core.common.DreamIPConfigManager;
 import com.dream.core.common.DreamPortConfigManager;
@@ -44,7 +43,6 @@ public class GateWayPreFilter extends ZuulFilter {
         return true;
     }
 
-    @WebLog
     @Override
     public Object run() {
         logger.info("dreamApplicationNameConfigManager:{}",dreamApplicationNameConfigManager);

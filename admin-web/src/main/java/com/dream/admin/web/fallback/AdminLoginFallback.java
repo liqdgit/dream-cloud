@@ -1,12 +1,8 @@
 package com.dream.admin.web.fallback;
 
 import com.dream.admin.web.service.AdminLoginService;
-import com.dream.admin.web.service.AdminMenuService;
-import com.dream.bean.admin.AdminMenu;
-import com.dream.core.common.Page;
 import com.dream.core.wrapper.WrapMapper;
 import com.dream.core.wrapper.Wrapper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 

@@ -2,6 +2,7 @@ package com.dream.admin.service.api.admin;
 
 import com.dream.bean.admin.AdminUser;
 import com.dream.core.wrapper.Wrapper;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 13:19
  */
-@RequestMapping("/api/${managerUrlPrefix}/user")
+@RequestMapping(value = "/api/${managerUrlPrefix}/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public interface AdminUserServiceApi {
 
     /**

@@ -3,7 +3,7 @@ package com.dream.admin.service.web;
 import com.dream.admin.service.api.admin.AdminMenuServiceApi;
 import com.dream.admin.service.service.AdminMenuService;
 import com.dream.bean.admin.AdminMenu;
-import com.dream.core.annotation.WebLog;
+import com.dream.core.annotation.DreamRequest;
 import com.dream.core.common.Page;
 import com.dream.core.wrapper.WrapMapper;
 import com.dream.core.wrapper.Wrapper;
@@ -12,7 +12,6 @@ import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class AdminMenuController implements AdminMenuServiceApi {
     @Autowired
     private AdminMenuService adminMenuService;
 
-    @WebLog
+    @DreamRequest
     @Override
     public Wrapper<PageInfo<AdminMenu>> queryPageList(Page<AdminMenu> page) {
         try {

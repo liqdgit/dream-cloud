@@ -3,6 +3,7 @@ package com.dream.bean.base;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Random;
 
 /**
  * <p>Title:      BaseBean. </p>
@@ -57,4 +58,17 @@ public class BaseBean {
     private Integer isDelete;
 
 
+    public void preInsert(){
+        Date now = new Date();
+        Random random = new Random(100000);
+        this.id = random.nextInt();
+        this.createUserId = 1;
+        this.createTime = now;
+        this.createUserName = "1";
+        this.updateUserId = 1;
+        this.updateTime = now;
+        this.updateUserName = "1";
+        this.version = 0;
+        this.isDelete = 0;
+    }
 }

@@ -1,12 +1,13 @@
 package com.dream.admin.web.controller;
 
 import com.dream.admin.web.service.HelloService;
-import com.dream.core.annotation.WebLog;
+import com.dream.core.annotation.DreamRequest;
 import com.dream.core.base.BaseController;
 import com.dream.core.wrapper.WrapMapper;
 import com.dream.core.wrapper.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @CreateDate     2017/12/25 14:59
  */
 @RestController
-@RequestMapping(value = "${managerUrlPrefix}/")
+@RequestMapping(value = "${managerUrlPrefix}/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class HelloController extends BaseController {
 
     @Autowired
@@ -27,14 +28,14 @@ public class HelloController extends BaseController {
     @Autowired
     private DiscoveryClient client;
 
-    @WebLog
+    @DreamRequest
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public String hello(){
         return helloService.hello("李清栋");
     }
 
 
-    @WebLog
+    @DreamRequest
     @RequestMapping(value = "client", method = RequestMethod.GET)
     public Wrapper client(){
         client.getInstances("ADMIN-SERVICE");

@@ -1,27 +1,28 @@
 package com.dream.admin.web.fallback;
 
-import com.dream.admin.web.service.AdminMenuService;
-import com.dream.bean.admin.AdminMenu;
-import com.dream.core.common.Page;
+import com.dream.admin.web.service.ApiManagerService;
+import com.dream.bean.admin.ApiManager;
 import com.dream.core.wrapper.WrapMapper;
 import com.dream.core.wrapper.Wrapper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+
 /**
- * <p>Title:      AdminMenuFallback. </p>
+ * <p>Title:      ApiManagerFallback. </p>
  * <p>Description TODO </p>
  *
  * @author         <a href="liqd163@163.com"/>李清栋</a>
- * @CreateDate     2018/1/8 11:34
+ * @CreateDate     2018/1/11 17:28
  */
 @Component
 @RequestMapping("/fallback")
-public class AdminMenuFallback implements AdminMenuService {
+public class ApiManagerFallback implements ApiManagerService {
+
 
     @Override
-    public Wrapper<PageInfo<AdminMenu>> queryPageList(Page<AdminMenu> page) {
+    public Wrapper insert(ArrayList<ApiManager> list) {
         return WrapMapper.error();
     }
 }

@@ -4,6 +4,7 @@ import com.dream.bean.admin.AdminMenu;
 import com.dream.core.common.Page;
 import com.dream.core.wrapper.Wrapper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/8 11:20
  */
-@RequestMapping("/api/${managerUrlPrefix}/menu")
+@RequestMapping(value = "/api/${managerUrlPrefix}/menu", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public interface AdminMenuServiceApi {
 
     /**

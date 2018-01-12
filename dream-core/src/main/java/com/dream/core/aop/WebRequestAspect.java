@@ -33,7 +33,7 @@ public class WebRequestAspect {
 
     private static final ThreadLocal<Long> threadLocal = new ThreadLocal<>();
 
-    @Pointcut("@annotation(com.dream.core.annotation.WebLog)")
+    @Pointcut("@annotation(com.dream.core.annotation.DreamRequest)")
     public void webLog() {
     }
 

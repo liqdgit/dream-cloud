@@ -8,11 +8,11 @@ import com.dream.core.common.DreamPortConfigManager;
 import com.dream.core.web.DreamServletContextListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 
 /**
@@ -24,6 +24,12 @@ import javax.servlet.ServletContextEvent;
  */
 @Configuration
 public class WebConfig {
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @Bean
     public WebRequestAspect webRequestAspect(){
@@ -68,4 +74,5 @@ public class WebConfig {
     public DreamPortConfigManager dreamPortConfigManager(){
         return new DreamPortConfigManager();
     }
+
 }

@@ -1,14 +1,9 @@
 package com.dream.user.auth.filter;
 
-import com.dream.core.annotation.WebLog;
 import com.dream.core.common.Constant;
-import com.dream.core.util.JacksonUtil;
 import com.dream.core.util.WebUtil;
-import com.dream.core.wrapper.WrapMapper;
-import com.dream.core.wrapper.Wrapper;
 import com.dream.user.auth.auth.TokenAuth;
 import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * <p>Title:      AuthFilter. </p>
@@ -57,7 +51,6 @@ public class AuthFilter extends ZuulFilter {
         return true;
     }
 
-    @WebLog
     @Override
     public Object run() {
 //        if(true){

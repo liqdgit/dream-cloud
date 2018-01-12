@@ -1,5 +1,6 @@
 package com.dream.admin.service.api.hello;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2017/12/25 14:34
  */
-@RequestMapping("/hello")
+@RequestMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public interface HelloServiceApi {
 
     /**
