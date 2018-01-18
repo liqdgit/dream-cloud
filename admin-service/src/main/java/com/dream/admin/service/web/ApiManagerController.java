@@ -9,9 +9,12 @@ import com.dream.core.wrapper.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -32,9 +35,9 @@ public class ApiManagerController implements ApiManagerServiceApi {
 
     @DreamRequest
     @Override
-    public Wrapper insert(ArrayList<ApiManager> list) {
+    public Wrapper insert(@RequestBody List<ApiManager> list, @RequestParam("serviceName") String serviceName) {
         try {
-            apiManagerService.insert(list);
+            apiManagerService.insertInit(list, serviceName);
             return WrapMapper.success();
         } catch (Exception e) {
             logger.error("--insert:添加失败", e.getMessage(), e);

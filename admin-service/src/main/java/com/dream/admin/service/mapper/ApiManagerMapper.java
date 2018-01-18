@@ -3,6 +3,9 @@ package com.dream.admin.service.mapper;
 
 import com.dream.bean.admin.ApiManager;
 import com.dream.core.base.DreamMapper;
+
+import java.util.List;
+
 /**
  * <p>Title:      ApiManagerMapper. </p>
  * <p>Description api管理 </p>
@@ -33,4 +36,15 @@ public interface ApiManagerMapper extends DreamMapper<ApiManager> {
      * @return
      */
     ApiManager queryByMethodName(String methodName);
+    
+    /**
+     * <p>Title:      根据服务名称查询. </p>
+     * <p>Description </p>
+     *
+     * @param         serviceName
+     * @author        <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate    2018/1/18 14:19
+     * @return        
+     */
+    List<ApiManager> queryByServiceName(String serviceName);
 }

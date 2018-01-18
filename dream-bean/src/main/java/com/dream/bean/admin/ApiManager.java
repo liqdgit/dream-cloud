@@ -26,11 +26,14 @@ public class ApiManager extends BaseBean {
 
     private Integer status;
 
+    private String serviceName;
+
 
     public enum Status {
 
-        OPEN(0, "开放"),
-        EXPIRE(1, "过时"),;
+        OPEN(10, "开放"),
+        OFFLINE(20, "下线"),
+        CLOSE(30, "关闭"),;
 
         Integer key;
         String value;

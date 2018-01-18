@@ -7,6 +7,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * <p>Title:      DreamApplicationNameConfigManager. </p>
+ * <p>Description TODO </p>
+ *
+ * @author         <a href="liqd163@163.com"/>李清栋</a>
+ * @CreateDate     2018/1/18 14:23
+ */
 @Data
 @Configuration
 @ConfigurationProperties(prefix = DreamApplicationNameConfigManager.PREFIX)

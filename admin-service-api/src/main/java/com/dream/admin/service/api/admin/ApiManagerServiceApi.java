@@ -6,8 +6,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title:      ApiManagerServiceApi. </p>
@@ -24,10 +25,11 @@ public interface ApiManagerServiceApi {
      * <p>Description </p>
      *
      * @param         list
+     * @param         serviceName
      * @author        <a href="liqd163@163.com"/>李清栋</a>
      * @CreateDate    2018/1/11 17:18
      * @return
      */
     @RequestMapping(value = "insert", method = RequestMethod.POST)
-    Wrapper insert(@RequestBody ArrayList<ApiManager> list);
+    Wrapper insert(@RequestBody List<ApiManager> list, @RequestParam("serviceName") String serviceName);
 }

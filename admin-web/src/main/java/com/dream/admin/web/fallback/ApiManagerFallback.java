@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title:      ApiManagerFallback. </p>
@@ -22,7 +23,7 @@ public class ApiManagerFallback implements ApiManagerService {
 
 
     @Override
-    public Wrapper insert(ArrayList<ApiManager> list) {
+    public Wrapper insert(List<ApiManager> list, String serviceName) {
         return WrapMapper.error();
     }
 }

@@ -8,6 +8,7 @@
     <result column="uri" property="uri" jdbcType="VARCHAR" />
     <result column="request_method" property="requestMethod" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="service_name" property="serviceName" jdbcType="VARCHAR" />
     <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
     <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -19,7 +20,7 @@
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, class_name, method_name, uri, request_method, status, create_user_id, create_user_name, 
+    id, class_name, method_name, uri, request_method, status,service_name, create_user_id, create_user_name,
     create_time, update_user_id, update_user_name, update_time, version, is_delete
   </sql>
 
@@ -30,13 +31,20 @@
     where id = #{id,jdbcType=INTEGER} and is_delete=0
   </select>
 
+  <select id="queryByServiceName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from dream_api_manager
+    where service_name = #{serviceName} and is_delete=0
+  </select>
+
   <insert id="insert" parameterType="com.dream.bean.admin.ApiManager" >
     insert into dream_api_manager (id, class_name, method_name, 
-      uri, request_method,
+      uri, request_method,service_name,
       create_user_id, create_user_name, create_time, 
       update_user_id, update_user_name, update_time)
     values (#{id,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR}, 
-      #{uri,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR},
+      #{uri,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR},#{serviceName,jdbcType=VARCHAR},
       #{createUserId,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateUserId,jdbcType=INTEGER}, #{updateUserName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -58,6 +66,9 @@
       </if>
       <if test="requestMethod != null" >
         request_method,
+      </if>
+      <if test="serviceName != null" >
+        service_name,
       </if>
       <if test="createUserId != null" >
         create_user_id,
@@ -93,6 +104,9 @@
       </if>
       <if test="requestMethod != null" >
         #{requestMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceName != null" >
+        #{serviceName,jdbcType=VARCHAR},
       </if>
       <if test="createUserId != null" >
         #{createUserId,jdbcType=INTEGER},
@@ -133,15 +147,6 @@
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="createUserId != null" >
-        create_user_id = #{createUserId,jdbcType=INTEGER},
-      </if>
-      <if test="createUserName != null" >
-        create_user_name = #{createUserName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="updateUserId != null" >
         update_user_id = #{updateUserId,jdbcType=INTEGER},
       </if>
@@ -172,6 +177,6 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM dream_api_manager
-    where method_name = #{methodName}, and is_delete = 0
+    where method_name = #{methodName} and is_delete = 0
   </select>
 </mapper>

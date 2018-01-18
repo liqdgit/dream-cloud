@@ -60,8 +60,8 @@ public class BaseBean {
 
     public void preInsert(){
         Date now = new Date();
-        Random random = new Random(100000);
-        this.id = random.nextInt();
+        Random random = new Random();
+        this.id = random.nextInt(100000);
         this.createUserId = 1;
         this.createTime = now;
         this.createUserName = "1";
