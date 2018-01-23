@@ -2,7 +2,7 @@ package com.dream.admin.service.service;
 
 import com.dream.admin.service.mapper.AdminUserMapper;
 import com.dream.bean.admin.AdminUser;
-import com.dream.core.base.DreamDaoService;
+import com.dream.core.common.base.DreamDaoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

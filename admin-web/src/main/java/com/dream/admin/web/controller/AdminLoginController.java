@@ -2,9 +2,9 @@ package com.dream.admin.web.controller;
 
 
 import com.dream.admin.web.service.AdminLoginService;
-import com.dream.core.annotation.DreamRequest;
-import com.dream.core.base.BaseController;
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.base.BaseController;
+import com.dream.core.common.wrapper.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

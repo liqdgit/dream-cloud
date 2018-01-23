@@ -1,7 +1,7 @@
 package com.dream.admin.service.web;
 
 import com.dream.admin.service.api.hello.HelloServiceApi;
-import com.dream.core.annotation.DreamRequest;
+import com.dream.core.common.annotation.DreamRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestParam;

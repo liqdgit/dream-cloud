@@ -2,10 +2,10 @@ package com.dream.admin.web.controller;
 
 import com.dream.admin.web.service.AdminMenuService;
 import com.dream.bean.admin.AdminMenu;
-import com.dream.core.annotation.DreamRequest;
-import com.dream.core.base.BaseController;
+import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.base.BaseController;
 import com.dream.core.common.Page;
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.wrapper.Wrapper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

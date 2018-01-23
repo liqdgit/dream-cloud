@@ -33,8 +33,8 @@ public class ReflectAnnotationMethodUtil {
      * @CreateDate    2018/1/2 17:48
      * @return
      */
-    public static List<Method> getClassList(String pkgName, boolean isRecursive, Class<? extends Annotation> annotation) {
-        List<Method> classList = new ArrayList<>();
+    public static ArrayList<Method> getClassList(String pkgName, boolean isRecursive, Class<? extends Annotation> annotation) {
+        ArrayList<Method> classList = new ArrayList<>();
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         try {
             // 按文件的形式去查找

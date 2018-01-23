@@ -3,6 +3,7 @@ package com.dream.bean.admin;
 import com.dream.bean.base.BaseBean;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -14,8 +15,9 @@ import java.util.*;
  * @CreateDate 2018/1/11 17:23
  */
 @Data
-public class ApiManager extends BaseBean {
+public class ApiManager extends BaseBean implements Serializable {
 
+    private static final long serialVersionUID = -6024164412185248161L;
     private String className;
 
     private String methodName;

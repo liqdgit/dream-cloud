@@ -30,6 +30,8 @@ public class Constant {
 
     private List<String> apiManagerServiceNames;
 
+    private String zookeeperUrl;
+
     public static final String PATH = "/";
 
     public static final Long SECOND_TIME = 1000L;

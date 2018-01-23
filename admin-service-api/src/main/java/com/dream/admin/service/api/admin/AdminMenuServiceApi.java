@@ -2,7 +2,7 @@ package com.dream.admin.service.api.admin;
 
 import com.dream.bean.admin.AdminMenu;
 import com.dream.core.common.Page;
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.wrapper.Wrapper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;

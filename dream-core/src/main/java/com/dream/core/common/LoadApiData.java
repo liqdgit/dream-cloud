@@ -26,7 +26,7 @@ import java.util.Map;
 public class LoadApiData {
 
     public static List<Method> getApi(String pkgName){
-        List<Method> methodList = ReflectAnnotationMethodUtil.getClassList(pkgName, true, DreamRequest.class);
+        ArrayList<Method> methodList = ReflectAnnotationMethodUtil.getClassList(pkgName, true, DreamRequest.class);
         return methodList;
     }
 

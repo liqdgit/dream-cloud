@@ -1,8 +1,8 @@
 package com.dream.admin.web.listener;
 
-import com.dream.core.api.manager.LoadApiData;
 import com.dream.core.common.ApiManagerConstant;
-import com.dream.core.web.DreamSpringApplicationListener;
+import com.dream.core.common.LoadApiData;
+import com.dream.core.common.web.DreamSpringApplicationListener;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationEvent;
 
@@ -27,5 +27,10 @@ public class DreamAdminWebListener extends DreamSpringApplicationListener {
             ApiManagerConstant.getInstance().initApi(methodList);
         }
 
+    }
+
+    @Override
+    public String getPkgName() {
+        return "com.dream.admin.web.controller";
     }
 }

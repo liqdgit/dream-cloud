@@ -1,7 +1,7 @@
 package com.dream.admin.service.api.admin;
 
 
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.wrapper.Wrapper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

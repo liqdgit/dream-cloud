@@ -2,15 +2,12 @@ package com.dream.admin.service.service;
 
 import com.dream.admin.service.mapper.ApiManagerMapper;
 import com.dream.bean.admin.ApiManager;
-import com.dream.core.base.DreamDaoService;
-import com.dream.core.util.JacksonUtil;
+import com.dream.core.common.base.DreamDaoService;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -57,6 +54,7 @@ public class ApiManagerService implements DreamDaoService<ApiManager> {
             for (ApiManager apiManager: list){
                 ApiManager api = apiManagerMapper.queryByMethodName(apiManager.getMethodName());
                 if(api == null){
+                    apiManager.preInsert();
                     apiManager.setServiceName(serviceName);
                     this.insert(apiManager);
                 }else{

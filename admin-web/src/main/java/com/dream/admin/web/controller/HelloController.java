@@ -1,10 +1,10 @@
 package com.dream.admin.web.controller;
 
 import com.dream.admin.web.service.HelloService;
-import com.dream.core.annotation.DreamRequest;
-import com.dream.core.base.BaseController;
-import com.dream.core.wrapper.WrapMapper;
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.base.BaseController;
+import com.dream.core.common.wrapper.WrapMapper;
+import com.dream.core.common.wrapper.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.MediaType;

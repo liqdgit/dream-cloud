@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <p>Title:      ServerApplication. </p>
@@ -15,6 +16,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
  */
 @EnableFeignClients
 @EnableEurekaClient
+@ComponentScan(basePackages = {"com.dream.core.config", "com.dream.admin.web"})
 @SpringBootApplication
 public class AdminWebApplication {
 

@@ -49,7 +49,7 @@ public class MyBatisMapperScannerConfig {
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
 		mapperScannerConfigurer.setBasePackage("com.dream.admin.service.mapper");
         Properties properties = new Properties();
-		properties.setProperty("mappers", "com.dream.core.base.DreamMapper");
+		properties.setProperty("mappers", "com.dream.core.common.base.DreamMapper");
         properties.setProperty("notEmpty", "false");
         properties.setProperty("IDENTITY", "MYSQL");
         mapperScannerConfigurer.setProperties(properties);

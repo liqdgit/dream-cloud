@@ -1,13 +1,13 @@
 package com.dream.admin.service.service;
 
 import com.dream.bean.admin.AdminUser;
-import com.dream.core.common.Constant;
-import com.dream.core.exception.DreamException;
-import com.dream.core.jwts.DreamJWT;
-import com.dream.core.jwts.DreamToken;
-import com.dream.core.util.CheckArgumentUtil;
-import com.dream.core.util.JacksonUtil;
-import com.dream.core.util.MD5Util;
+import com.dream.core.config.Constant;
+import com.dream.core.common.DreamException;
+import com.dream.core.common.jwts.DreamJWT;
+import com.dream.core.common.jwts.DreamToken;
+import com.dream.core.common.util.CheckArgumentUtil;
+import com.dream.core.common.util.JacksonUtil;
+import com.dream.core.common.util.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

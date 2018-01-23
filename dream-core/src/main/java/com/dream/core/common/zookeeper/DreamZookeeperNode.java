@@ -10,13 +10,13 @@ package com.dream.core.common.zookeeper;
 public class DreamZookeeperNode {
 
 
-    public class RequestMappingNode {
+    public static class RequestMappingNode {
 
-        private static final String prefix = "requestMapping/";
+        public static final String prefix = "/requestMapping";
         private String serviceName;
 
         public RequestMappingNode(String serviceName){
-            this.serviceName = serviceName;
+            this.serviceName = "/" + serviceName;
         }
 
         public String getServiceName() {
@@ -33,13 +33,13 @@ public class DreamZookeeperNode {
         }
     }
 
-    public class ApiManagerNode {
+    public static class ApiManagerNode {
 
-        private static final String prefix = "apiManager/";
+        public static final String prefix = "/apiManager";
         private String serviceName;
 
         public ApiManagerNode(String serviceName){
-            this.serviceName = serviceName;
+            this.serviceName = "/" + serviceName;
         }
 
         public String getServiceName() {

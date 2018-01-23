@@ -1,7 +1,7 @@
 package com.dream.admin.service.mapper;
 
 import com.dream.bean.admin.AdminUser;
-import com.dream.core.base.DreamMapper;
+import com.dream.core.common.base.DreamMapper;
 
 import java.util.List;
 

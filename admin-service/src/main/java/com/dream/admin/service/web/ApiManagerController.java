@@ -3,9 +3,9 @@ package com.dream.admin.service.web;
 import com.dream.admin.service.api.admin.ApiManagerServiceApi;
 import com.dream.admin.service.service.ApiManagerService;
 import com.dream.bean.admin.ApiManager;
-import com.dream.core.annotation.DreamRequest;
-import com.dream.core.wrapper.WrapMapper;
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.wrapper.WrapMapper;
+import com.dream.core.common.wrapper.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
