@@ -1,10 +1,10 @@
 package com.dream.gateway.config;
 
-import com.dream.core.aop.WebRequestAspect;
-import com.dream.core.common.Constant;
-import com.dream.core.common.DreamApplicationNameConfigManager;
-import com.dream.core.common.DreamIPConfigManager;
-import com.dream.core.common.DreamPortConfigManager;
+import com.dream.core.config.aop.WebRequestAspect;
+import com.dream.core.config.Constant;
+import com.dream.core.config.DreamApplicationNameConfigManager;
+import com.dream.core.config.DreamIpConfigManager;
+import com.dream.core.config.DreamPortConfigManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,8 +34,8 @@ public class WebConfig {
     }
 
     @Bean
-    public DreamIPConfigManager dreamIPConfigManager(){
-        return new DreamIPConfigManager();
+    public DreamIpConfigManager dreamIPConfigManager(){
+        return new DreamIpConfigManager();
     }
 
     @Bean

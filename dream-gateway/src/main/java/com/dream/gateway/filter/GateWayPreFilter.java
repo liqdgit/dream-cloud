@@ -1,8 +1,8 @@
 package com.dream.gateway.filter;
 
-import com.dream.core.common.DreamApplicationNameConfigManager;
-import com.dream.core.common.DreamIPConfigManager;
-import com.dream.core.common.DreamPortConfigManager;
+import com.dream.core.config.DreamApplicationNameConfigManager;
+import com.dream.core.config.DreamIpConfigManager;
+import com.dream.core.config.DreamPortConfigManager;
 import com.netflix.zuul.ZuulFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +24,7 @@ public class GateWayPreFilter extends ZuulFilter {
     @Autowired
     private DreamPortConfigManager dreamPortConfigManager;
     @Autowired
-    private DreamIPConfigManager dreamIPConfigManager;
+    private DreamIpConfigManager dreamIpConfigManager;
     @Autowired
     private DreamApplicationNameConfigManager dreamApplicationNameConfigManager;
 
@@ -47,7 +47,7 @@ public class GateWayPreFilter extends ZuulFilter {
     public Object run() {
         logger.info("dreamApplicationNameConfigManager:{}",dreamApplicationNameConfigManager);
         logger.info("dreamPortConfigManager:{}",dreamPortConfigManager);
-        logger.info("dreamIPConfigManager:{}",dreamIPConfigManager);
+        logger.info("dreamIPConfigManager:{}", dreamIpConfigManager);
         return null;
     }
 }

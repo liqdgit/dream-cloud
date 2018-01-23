@@ -1,7 +1,7 @@
 package com.dream.user.auth.filter;
 
-import com.dream.core.common.Constant;
-import com.dream.core.util.WebUtil;
+import com.dream.core.config.Constant;
+import com.dream.core.common.util.WebUtil;
 import com.dream.user.auth.auth.TokenAuth;
 import com.netflix.zuul.ZuulFilter;
 import org.apache.commons.lang3.StringUtils;

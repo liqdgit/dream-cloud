@@ -1,9 +1,9 @@
 package com.dream.user.auth.auth;
 
-import com.dream.core.common.Constant;
-import com.dream.core.jwts.DreamJWT;
-import com.dream.core.jwts.DreamToken;
-import com.dream.core.util.CookieUtil;
+import com.dream.core.config.Constant;
+import com.dream.core.common.jwts.DreamJWT;
+import com.dream.core.common.jwts.DreamToken;
+import com.dream.core.common.util.CookieUtil;
 import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

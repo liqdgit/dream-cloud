@@ -1,7 +1,7 @@
 package com.dream.user.auth.config;
 
-import com.dream.core.aop.WebRequestAspect;
-import com.dream.core.common.Constant;
+import com.dream.core.config.aop.WebRequestAspect;
+import com.dream.core.config.Constant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

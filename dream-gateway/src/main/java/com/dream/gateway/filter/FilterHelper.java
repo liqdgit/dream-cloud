@@ -1,8 +1,8 @@
 package com.dream.gateway.filter;
 
-import com.dream.core.util.JacksonUtil;
-import com.dream.core.wrapper.WrapMapper;
-import com.dream.core.wrapper.Wrapper;
+import com.dream.core.common.util.JacksonUtil;
+import com.dream.core.common.wrapper.WrapMapper;
+import com.dream.core.common.wrapper.Wrapper;
 import com.netflix.zuul.context.RequestContext;
 
 /**
