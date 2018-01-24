@@ -12,7 +12,6 @@ public class Test {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         ApiManager apiManager = new ApiManager();
-        apiManager.setList(new LinkedList<AdminUser>());
         byte[] bytes = ObjectSerializeUtil.serialize(apiManager);
         apiManager = ObjectSerializeUtil.deserialize(bytes);
         System.out.println(bytes);

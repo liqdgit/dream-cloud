@@ -7,7 +7,6 @@ import com.dream.core.common.base.BaseController;
 import com.dream.core.common.wrapper.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +19,7 @@ import java.util.List;
  * @author         <a href="liqd163@163.com"/>李清栋</a>
  * @CreateDate     2018/1/4 13:53
  */
-@Controller
+@RestController
 @RequestMapping(value = "${managerUrlPrefix}/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class AdminUserController extends BaseController {
 
