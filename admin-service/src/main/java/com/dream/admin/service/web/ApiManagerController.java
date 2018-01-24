@@ -43,4 +43,16 @@ public class ApiManagerController implements ApiManagerServiceApi {
             return WrapMapper.error();
         }
     }
+
+    @DreamRequest
+    @Override
+    public Wrapper<ApiManager> queryByMethodName(@RequestParam("methodName") String methodName) {
+        try {
+            ApiManager apiManager = apiManagerService.queryByMethodName(methodName);
+            return WrapMapper.success(apiManager);
+        } catch (Exception e) {
+            logger.error("--queryByMethodName:查询失败", e.getMessage(), e);
+            return WrapMapper.error();
+        }
+    }
 }

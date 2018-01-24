@@ -96,4 +96,17 @@ public class ApiManagerService implements DreamDaoService<ApiManager> {
     public List<ApiManager> queryByServiceName(String serviceName){
         return apiManagerMapper.queryByServiceName(serviceName);
     }
+
+    /**
+     * <p>Title:      根据方法名查询. </p>
+     * <p>Description </p>
+     *
+     * @param         methodName
+     * @author        <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate    2018/1/12 17:28
+     * @return
+     */
+    public ApiManager queryByMethodName(String methodName){
+        return apiManagerMapper.queryByMethodName(methodName);
+    }
 }

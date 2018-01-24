@@ -88,6 +88,8 @@ public class Wrapper<T> implements Serializable {
         PARAM_ERROR(400, "参数错误"),
 
         FORBIDDEN(403, "拒绝访问"),
+
+        NOT_FOUND(404, "没有该接口"),
         ;
 
         private Integer code;

@@ -67,7 +67,7 @@ public class ApiManager extends BaseBean implements Serializable {
          * @param key key
          * @return value
          */
-        public static String getValue(String key) {
+        public static String getValue(Integer key) {
             for (Status ele : Status.values()) {
                 if (key.equals(ele.getKey())) {
                     return ele.getValue();

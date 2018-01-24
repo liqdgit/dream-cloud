@@ -92,6 +92,14 @@ public class UriMatchHandlerMapping {
             this.handlerMethod = handlerMethod;
         }
 
+        public RequestMappingInfo getMapping() {
+            return mapping;
+        }
+
+        public HandlerMethod getHandlerMethod() {
+            return handlerMethod;
+        }
+
         @Override
         public String toString() {
             return this.mapping.toString();
