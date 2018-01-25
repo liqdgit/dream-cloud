@@ -118,19 +118,19 @@ public abstract class DreamSpringApplicationListener implements ApplicationListe
             if(constant.getApiManagerServiceNames().contains(appNameManager.getApplicationName())){
                 RequestMappingHandlerMapping requestMappingHandlerMapping = applicationContext.getBean(RequestMappingHandlerMapping.class);
                 Map<RequestMappingInfo, HandlerMethod> mappingLookup = requestMappingHandlerMapping.getHandlerMethods();
-
                 List<Method> methodList = LoadApiData.getApi(getPkgName());
                 ArrayList<ApiManager> apiManagerList = LoadApiData.format(methodList, mappingLookup);
-                DreamZookeeperNode.ApiManagerNode apiManagerNode = new DreamZookeeperNode.ApiManagerNode(appNameManager.getApplicationName());
+                DreamZookeeperNode apiManagerNode = new DreamZookeeperNode(appNameManager.getApplicationName(), DreamZookeeperNode.NodePrefix.API_MANAGER.getNodePrefix());
                 ZookeeperClientFactory clientFactory = new ZookeeperClientFactory(constant.getZookeeperUrl(), "");
                 CuratorFramework client = clientFactory.getClient();
                 ZooKeeperNodeOperation nodeOperation = new ZooKeeperNodeOperation(client);
+                String apiNode = apiManagerNode.toString();
                 try {
-                    Stat apiStat = nodeOperation.checkExists(apiManagerNode.toString());
+                    Stat apiStat = nodeOperation.checkExists(apiNode);
                     if(apiStat != null){
-                        nodeOperation.update(apiManagerNode.toString(), apiManagerList);
+                        nodeOperation.update(apiNode, apiManagerList);
                     }else{
-                        nodeOperation.create(apiManagerNode.toString(), CreateMode.PERSISTENT, apiManagerList);
+                        nodeOperation.create(apiNode, CreateMode.PERSISTENT, apiManagerList);
                     }
                 } catch (Exception e) {
                     logger.error("初始化异常", e);
@@ -140,4 +140,5 @@ public abstract class DreamSpringApplicationListener implements ApplicationListe
             }
         }
     }
+
 }

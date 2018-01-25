@@ -9,50 +9,64 @@ package com.dream.core.common.zookeeper;
  */
 public class DreamZookeeperNode {
 
+    public String prefix;
+    private String serviceName;
 
-    public static class RequestMappingNode {
-
-        public static final String prefix = "/requestMapping";
-        private String serviceName;
-
-        public RequestMappingNode(String serviceName){
-            this.serviceName = "/" + serviceName;
-        }
-
-        public String getServiceName() {
-            return serviceName;
-        }
-
-        public void setServiceName(String serviceName) {
-            this.serviceName = serviceName;
-        }
-
-        @Override
-        public String toString() {
-            return prefix + serviceName;
-        }
+    public DreamZookeeperNode(String serviceName, String prefix){
+        this.serviceName = "/" + serviceName;
+        this.prefix = prefix;
     }
 
-    public static class ApiManagerNode {
+    public String getServiceName() {
+        return serviceName;
+    }
 
-        public static final String prefix = "/apiManager";
-        private String serviceName;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
 
-        public ApiManagerNode(String serviceName){
-            this.serviceName = "/" + serviceName;
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    @Override
+    public String toString() {
+        return prefix + serviceName;
+    }
+
+
+    public enum NodePrefix {
+        REQUEST_MAPPING("/requestMapping", "requestMapping"),
+        API_MANAGER("/apiManager", "Api信息");
+
+        private String nodePrefix;
+
+        private String desc;
+
+        NodePrefix(String nodePrefix, String desc){
+            this.nodePrefix = nodePrefix;
+            this.desc = desc;
         }
 
-        public String getServiceName() {
-            return serviceName;
+        public String getNodePrefix() {
+            return nodePrefix;
         }
 
-        public void setServiceName(String serviceName) {
-            this.serviceName = serviceName;
+        public void setNodePrefix(String nodePrefix) {
+            this.nodePrefix = nodePrefix;
         }
 
-        @Override
-        public String toString() {
-            return prefix + serviceName;
+        public String getDesc() {
+            return desc;
         }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
     }
 }

@@ -36,21 +36,21 @@ public class DreamAdminServiceListener extends DreamSpringApplicationListener {
             ApplicationContext applicationContext = DreamApplicationContext.getApplicationContext();
             Constant constant = applicationContext.getBean(Constant.class);
             List<String> serviceNames = constant.getApiManagerServiceNames();
-            DreamZookeeperNode.ApiManagerNode apiManagerNode;
+            DreamZookeeperNode apiManagerNode;
             ZookeeperClientFactory clientFactory = new ZookeeperClientFactory(constant.getZookeeperUrl(), "");
             CuratorFramework client = clientFactory.getClient();
             ZooKeeperNodeOperation nodeOperation = new ZooKeeperNodeOperation(client);
             final ApiManagerService apiManagerService = applicationContext.getBean(ApiManagerService.class);
             if(serviceNames != null){
                 for (String str: serviceNames){
-                    apiManagerNode = new DreamZookeeperNode.ApiManagerNode(str);
+                    apiManagerNode = new DreamZookeeperNode(str, DreamZookeeperNode.NodePrefix.API_MANAGER.getNodePrefix());
                     String node = apiManagerNode.toString();
                     try {
                         if(nodeOperation.checkExists(node) != null){
                             List<ApiManager> list = nodeOperation.get(node);
                             apiManagerService.insertInit(list, str);
                         }
-                        PathChildrenCache cache = new PathChildrenCache(client, DreamZookeeperNode.ApiManagerNode.prefix, true);
+                        PathChildrenCache cache = new PathChildrenCache(client, DreamZookeeperNode.NodePrefix.API_MANAGER.getNodePrefix(), true);
                         ZookeeperNodeListener nodeListener = new ZookeeperNodeListener() {
                             @Override
                             public void handleApi(List<ApiManager> list, String serviceName) {

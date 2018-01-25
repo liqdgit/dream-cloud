@@ -23,6 +23,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
         <!-- spring-boot 健康监控模块 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
