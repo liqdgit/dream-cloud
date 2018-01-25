@@ -2,7 +2,7 @@ package com.dream.admin.service.service;
 
 import com.dream.admin.service.mapper.ApiManagerMapper;
 import com.dream.bean.admin.ApiManager;
-import com.dream.core.common.base.DreamDaoService;
+import com.dream.core.common.base.BaseService;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +18,10 @@ import java.util.List;
  * @CreateDate     2018/1/11 17:16
  */
 @Service
-public class ApiManagerService implements DreamDaoService<ApiManager> {
+public class ApiManagerService extends BaseService<ApiManagerMapper, ApiManager> {
 
     @Autowired
     private ApiManagerMapper apiManagerMapper;
-
-    @Override
-    public int insert(ApiManager record) {
-        return apiManagerMapper.insert(record);
-    }
 
     public void insertInit(List<ApiManager> list, String serviceName) throws Exception {
         List<ApiManager> dataList = this.queryByServiceName(serviceName);
@@ -67,21 +62,6 @@ public class ApiManagerService implements DreamDaoService<ApiManager> {
                 }
             }
         }
-    }
-
-    @Override
-    public int insertSelective(ApiManager record) {
-        return apiManagerMapper.insertSelective(record);
-    }
-
-    @Override
-    public ApiManager queryById(Integer id) {
-        return apiManagerMapper.queryById(id);
-    }
-
-    @Override
-    public int updateByIdSelective(ApiManager record) {
-        return apiManagerMapper.updateByIdSelective(record);
     }
 
     /**

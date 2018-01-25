@@ -2,10 +2,9 @@ package com.dream.admin.service.service;
 
 import com.dream.admin.service.mapper.AdminMenuMapper;
 import com.dream.bean.admin.AdminMenu;
-import com.dream.core.common.base.DreamDaoService;
+import com.dream.core.common.base.BaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,12 +17,9 @@ import java.util.List;
  * @CreateDate     2018/1/8 11:16
  */
 @Service
-public class AdminMenuService implements DreamDaoService<AdminMenu> {
+public class AdminMenuService extends BaseService<AdminMenuMapper, AdminMenu> {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @Autowired
-    private AdminMenuMapper adminMenuMapper;
 
     /**
      * <p>Title:      分页查询. </p>
@@ -35,26 +31,8 @@ public class AdminMenuService implements DreamDaoService<AdminMenu> {
      * @return
      */
     public List<AdminMenu> queryPageList(AdminMenu adminMenu){
-        return adminMenuMapper.queryPageList(adminMenu);
+        return mapper.queryPageList(adminMenu);
     }
 
-    @Override
-    public int insert(AdminMenu record) {
-        return adminMenuMapper.insert(record);
-    }
 
-    @Override
-    public int insertSelective(AdminMenu record) {
-        return adminMenuMapper.insertSelective(record);
-    }
-
-    @Override
-    public AdminMenu queryById(Integer id) {
-        return adminMenuMapper.queryById(id);
-    }
-
-    @Override
-    public int updateByIdSelective(AdminMenu record) {
-        return adminMenuMapper.updateByIdSelective(record);
-    }
 }
