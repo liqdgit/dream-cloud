@@ -25,9 +25,9 @@ public abstract class ZookeeperNodeListener implements PathChildrenCacheListener
 
     @Override
     public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent event) throws Exception {
-        logger.info("zookeeper节点{}，监听类型{}", event.getData().getPath(), event.getType().toString());
         if(event.getType() == PathChildrenCacheEvent.Type.CHILD_ADDED
                 || event.getType() == PathChildrenCacheEvent.Type.CHILD_UPDATED){
+            logger.info("zookeeper节点{}，监听类型{}", event.getData().getPath(), event.getType().toString());
             byte[] bytes = event.getData().getData();
             if(bytes != null && bytes.length > 0){
                 logger.info("读取zookeeper节点数据，初始化Api接口...");

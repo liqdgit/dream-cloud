@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -23,8 +24,8 @@ import java.util.Map;
  * <p>Title:      DreamAuthInterceptor. </p>
  * <p>Description 拦截器 </p>
  *
- * @author         <a href="liqd163@163.com"/>李清栋</a>
- * @CreateDate     2018/1/25 10:54
+ * @author <a href="liqd163@163.com"/>李清栋</a>
+ * @CreateDate 2018/1/25 10:54
  */
 public abstract class DreamAuthInterceptor implements HandlerInterceptor {
 
@@ -32,9 +33,9 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if(api()){
+        if (api()) {
             boolean check = checkApi(request, response);
-            if(!check){
+            if (!check) {
                 return false;
             }
         }
@@ -50,22 +51,22 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         after(request, response, handler, ex);
     }
-    
-    
+
+
     public abstract boolean pre(HttpServletRequest request, HttpServletResponse response, Object handler);
-    
+
     public abstract void post(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView);
-    
+
     public abstract void after(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex);
-    
+
     /**
      * <p>Title:      是否Api服务，为true则进行Api鉴权. </p>
      * <p>Description </p>
      *
-     * @param         
-     * @author        <a href="liqd163@163.com"/>李清栋</a>
-     * @CreateDate    2018/1/25 10:58
-     * @return        
+     * @param
+     * @return
+     * @author <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate 2018/1/25 10:58
      */
     public abstract boolean api();
 
@@ -73,10 +74,10 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
      * <p>Title:      获取Api信息. </p>
      * <p>Description </p>
      *
-     * @param         methodName
-     * @author        <a href="liqd163@163.com"/>李清栋</a>
-     * @CreateDate    2018/1/25 11:01
+     * @param methodName
      * @return
+     * @author <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate 2018/1/25 11:01
      */
     public abstract Wrapper<ApiManager> getApiInfo(String methodName);
 
@@ -85,9 +86,9 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
      * <p>Description </p>
      *
      * @param
-     * @author        <a href="liqd163@163.com"/>李清栋</a>
-     * @CreateDate    2018/1/25 11:06
      * @return
+     * @author <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate 2018/1/25 11:06
      */
     private boolean checkApi(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("--->进入拦截器，进行接口验证");
@@ -97,19 +98,26 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
             Map<RequestMappingInfo, HandlerMethod> handlerMethodMap = requestMappingHandlerMapping.getHandlerMethods();
             UriMatchHandlerMapping uriMatchHandlerMapping = new UriMatchHandlerMapping(handlerMethodMap);
             UriMatchHandlerMapping.Match match = uriMatchHandlerMapping.lookupHandlerMethod(request);
-            if(match == null){
+            if (match == null) {
                 handleException(request, response, WrapMapper.error(Wrapper.ResultCode.NOT_FOUND).toString());
+                return false;
             }
             Method method = match.getHandlerMethod().getMethod();
             Wrapper<ApiManager> wrapper = getApiInfo(method.toGenericString());
-            if(wrapper == null){
+            if (wrapper == null) {
                 handleException(request, response, WrapMapper.error(Wrapper.ResultCode.NOT_FOUND).toString());
+                return false;
             }
             if (!wrapper.is()) {
                 handleException(request, response, WrapMapper.error(Wrapper.ResultCode.ERROR).toString());
+                return false;
             }
             ApiManager apiManager = wrapper.getResult();
-            if(apiManager.getStatus().equals(ApiManager.Status.OPEN.getKey())){
+            if (apiManager == null) {
+                handleException(request, response, WrapMapper.error(Wrapper.ResultCode.NOT_FOUND).toString());
+                return false;
+            }
+            if (apiManager.getStatus().equals(ApiManager.Status.OPEN.getKey())) {
                 return true;
             }
             handleException(request, response,
@@ -125,16 +133,16 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
      * <p>Title:      设置响应信息. </p>
      * <p>Description </p>
      *
-     * @param         
-     * @author        <a href="liqd163@163.com"/>李清栋</a>
-     * @CreateDate    2018/1/25 11:06
-     * @return        
+     * @param
+     * @return
+     * @author <a href="liqd163@163.com"/>李清栋</a>
+     * @CreateDate 2018/1/25 11:06
      */
-    public void handleException(HttpServletRequest req, HttpServletResponse res, String msg) throws IOException {
+    public void handleException(HttpServletRequest req, ServletResponse res, String msg) throws IOException {
         res.resetBuffer();
         res.setCharacterEncoding("UTF-8");
         res.setContentType("application/json");
-        res.setLocale(new java.util.Locale("zh","CN"));
+        res.setLocale(new java.util.Locale("zh", "CN"));
         res.getWriter().write(msg);
         res.flushBuffer();
     }

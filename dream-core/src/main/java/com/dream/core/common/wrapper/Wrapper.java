@@ -13,10 +13,11 @@ public class Wrapper<T> implements Serializable {
 
     private static final long serialVersionUID = -8627210024985553696L;
 
-    public Wrapper(Integer code, String message, T result) {
+    public Wrapper(Integer code, String message, T result, Exception ex) {
         this.code = code;
         this.message = message;
         this.result = result;
+        this.exception = ex;
     }
 
     public Wrapper(){
@@ -36,6 +37,11 @@ public class Wrapper<T> implements Serializable {
      * 返回结果
      */
     private T result;
+
+    /**
+     * 异常信息
+     */
+    private Exception exception;
 
     public Integer getCode() {
         return code;
@@ -59,6 +65,14 @@ public class Wrapper<T> implements Serializable {
 
     public void setResult(T result) {
         this.result = result;
+    }
+
+    protected Exception getException() {
+        return exception;
+    }
+
+    protected void setException(Exception exception) {
+        this.exception = exception;
     }
 
     public boolean is() {

@@ -12,11 +12,15 @@ public class WrapMapper {
 
 
     public static Wrapper wrap(Integer code, String message) {
-        return new Wrapper(code, message, null);
+        return new Wrapper(code, message, null, null);
+    }
+
+    public static Wrapper wrap(Integer code, String message, Exception ex) {
+        return new Wrapper(code, message, null, ex);
     }
 
     public static Wrapper wrap(Integer code, String message, Object result) {
-        return new Wrapper(code, message, result);
+        return new Wrapper(code, message, result, null);
     }
 
     public static Wrapper success() {
@@ -41,6 +45,10 @@ public class WrapMapper {
 
     public static Wrapper error() {
         return wrap(Wrapper.ResultCode.ERROR.getCode(), Wrapper.ResultCode.ERROR.getMessage());
+    }
+
+    public static Wrapper error(Exception ex) {
+        return wrap(Wrapper.ResultCode.ERROR.getCode(), Wrapper.ResultCode.ERROR.getMessage(), ex);
     }
 
     public static Wrapper unauthorized() {
