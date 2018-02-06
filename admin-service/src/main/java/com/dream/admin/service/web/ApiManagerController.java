@@ -4,6 +4,7 @@ import com.dream.admin.service.api.admin.ApiManagerServiceApi;
 import com.dream.admin.service.service.ApiManagerService;
 import com.dream.bean.admin.ApiManager;
 import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.annotation.DreamRequestType;
 import com.dream.core.common.wrapper.WrapMapper;
 import com.dream.core.common.wrapper.Wrapper;
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class ApiManagerController implements ApiManagerServiceApi {
     private ApiManagerService apiManagerService;
 
 
-    @DreamRequest
+    @DreamRequest(type = DreamRequestType.SERVICE)
     @Override
     public Wrapper insert(@RequestBody List<ApiManager> list, @RequestParam("serviceName") String serviceName) {
         try {
@@ -44,7 +45,7 @@ public class ApiManagerController implements ApiManagerServiceApi {
         }
     }
 
-    @DreamRequest
+    @DreamRequest(type = DreamRequestType.SERVICE)
     @Override
     public Wrapper<ApiManager> queryByMethodName(@RequestParam("methodName") String methodName) {
         try {

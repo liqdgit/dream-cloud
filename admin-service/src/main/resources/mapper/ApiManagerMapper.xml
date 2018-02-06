@@ -9,6 +9,7 @@
     <result column="request_method" property="requestMethod" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="service_name" property="serviceName" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
     <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -21,7 +22,7 @@
 
   <sql id="Base_Column_List" >
     id, class_name, method_name, uri, request_method, status,service_name, create_user_id, create_user_name,
-    create_time, update_user_id, update_user_name, update_time, version, is_delete
+    create_time, update_user_id, update_user_name, update_time, version, is_delete,type
   </sql>
 
   <select id="queryById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -39,12 +40,12 @@
   </select>
 
   <insert id="insert" parameterType="com.dream.bean.admin.ApiManager" >
-    insert into dream_api_manager (id, class_name, method_name, 
-      uri, request_method,service_name,
+    insert into dream_api_manager (class_name, method_name,
+      uri, request_method,service_name,`type`,
       create_user_id, create_user_name, create_time, 
       update_user_id, update_user_name, update_time)
-    values (#{id,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR}, 
-      #{uri,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR},#{serviceName,jdbcType=VARCHAR},
+    values (#{className,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR},
+      #{uri,jdbcType=VARCHAR}, #{requestMethod,jdbcType=VARCHAR},#{serviceName,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},
       #{createUserId,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateUserId,jdbcType=INTEGER}, #{updateUserName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -52,9 +53,6 @@
   <insert id="insertSelective" parameterType="com.dream.bean.admin.ApiManager" >
     insert into dream_api_manager
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="className != null" >
         class_name,
       </if>
@@ -69,6 +67,9 @@
       </if>
       <if test="serviceName != null" >
         service_name,
+      </if>
+      <if test="type != null" >
+        `type`,
       </if>
       <if test="createUserId != null" >
         create_user_id,
@@ -90,9 +91,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="className != null" >
         #{className,jdbcType=VARCHAR},
       </if>
@@ -107,6 +105,9 @@
       </if>
       <if test="serviceName != null" >
         #{serviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
       </if>
       <if test="createUserId != null" >
         #{createUserId,jdbcType=INTEGER},

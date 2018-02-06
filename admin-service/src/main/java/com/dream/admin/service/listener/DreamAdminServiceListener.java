@@ -28,6 +28,8 @@ import java.util.List;
  */
 public class DreamAdminServiceListener extends DreamSpringApplicationListener {
 
+    private static final String packageName = "com.dream.admin.service.web";
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
@@ -74,6 +76,6 @@ public class DreamAdminServiceListener extends DreamSpringApplicationListener {
 
     @Override
     public String getPkgName() {
-        return "";
+        return packageName;
     }
 }

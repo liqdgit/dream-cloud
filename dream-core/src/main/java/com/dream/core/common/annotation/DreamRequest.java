@@ -6,4 +6,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface DreamRequest {
+
+    DreamRequestType type() default DreamRequestType.WEB;
 }

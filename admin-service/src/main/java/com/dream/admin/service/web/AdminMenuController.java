@@ -5,6 +5,7 @@ import com.dream.admin.service.service.AdminMenuService;
 import com.dream.bean.admin.AdminMenu;
 import com.dream.core.common.annotation.DreamRequest;
 import com.dream.core.common.Page;
+import com.dream.core.common.annotation.DreamRequestType;
 import com.dream.core.common.wrapper.WrapMapper;
 import com.dream.core.common.wrapper.Wrapper;
 import com.github.pagehelper.PageHelper;
@@ -31,7 +32,7 @@ public class AdminMenuController implements AdminMenuServiceApi {
     @Autowired
     private AdminMenuService adminMenuService;
 
-    @DreamRequest
+    @DreamRequest(type = DreamRequestType.SERVICE)
     @Override
     public Wrapper<PageInfo<AdminMenu>> queryPageList(Page<AdminMenu> page) {
         try {

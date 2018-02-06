@@ -4,6 +4,7 @@ import com.dream.admin.service.api.admin.AdminLoginServiceApi;
 import com.dream.admin.service.service.AdminLoginService;
 import com.dream.core.common.annotation.DreamRequest;
 import com.dream.core.common.DreamException;
+import com.dream.core.common.annotation.DreamRequestType;
 import com.dream.core.common.wrapper.WrapMapper;
 import com.dream.core.common.wrapper.Wrapper;
 import org.slf4j.Logger;
@@ -27,7 +28,7 @@ public class AdminLoginController implements AdminLoginServiceApi {
     @Autowired
     private AdminLoginService loginService;
 
-    @DreamRequest
+    @DreamRequest(type = DreamRequestType.SERVICE)
     @Override
     public Wrapper<String> login(String loginName, String loginPwd) {
         try {

@@ -2,6 +2,7 @@ package com.dream.core.common;
 
 import com.dream.bean.admin.ApiManager;
 import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.annotation.DreamRequestType;
 import com.dream.core.common.util.ReflectAnnotationMethodUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.util.Lists;
@@ -35,24 +36,33 @@ public class LoadApiData {
         Map<String, Map.Entry<RequestMappingInfo, HandlerMethod>> requestMap = formatRequestMapping(map);
         if(methodList != null && methodList.size() > 0){
             for (Method method: methodList){
-                String clazzName = method.getDeclaringClass().getName();
-                String methodName = method.toGenericString();
-                Map.Entry<RequestMappingInfo, HandlerMethod> methodMap = requestMap.get(methodName);
-                RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
-                if(requestMapping != null){
-                    String requestMethod = StringUtils.join(requestMapping.method(), ",");
+                DreamRequest dreamRequest = method.getAnnotation(DreamRequest.class);
+                if(dreamRequest != null){
+                    String clazzName = method.getDeclaringClass().getName();
+                    String methodName = method.toGenericString();
+                    DreamRequestType requestType = dreamRequest.type();
+
                     ApiManager apiManager = new ApiManager();
                     apiManager.setClassName(clazzName);
                     apiManager.setMethodName(methodName);
-                    apiManager.setRequestMethod(requestMethod);
-                    RequestMappingInfo info = methodMap.getKey();
-                    PatternsRequestCondition p = info.getPatternsCondition();
-                    List<String> urls = Lists.newArrayList(p.getPatterns());
-                    apiManager.setUri(StringUtils.join(urls, ","));
                     apiManager.preInsert();
+                    if(requestType == DreamRequestType.SERVICE){
+                        apiManager.setType(DreamRequestType.SERVICE.name());
+                    }
+                    if(requestType == DreamRequestType.WEB){
+                        apiManager.setType(DreamRequestType.WEB.name());
+                        Map.Entry<RequestMappingInfo, HandlerMethod> methodMap = requestMap.get(methodName);
+                        RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
+                        if(requestMapping != null){
+                            String requestMethod = StringUtils.join(requestMapping.method(), ",");
+                            apiManager.setRequestMethod(requestMethod);
+                            RequestMappingInfo info = methodMap.getKey();
+                            PatternsRequestCondition p = info.getPatternsCondition();
+                            List<String> urls = Lists.newArrayList(p.getPatterns());
+                            apiManager.setUri(StringUtils.join(urls, ","));
+                        }
+                    }
                     list.add(apiManager);
-                }else{
-                    continue;
                 }
             }
         }

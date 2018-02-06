@@ -30,6 +30,8 @@ public class ApiManager extends BaseBean implements Serializable {
 
     private String serviceName;
 
+    private String type;
+
 
     public enum Status {
 

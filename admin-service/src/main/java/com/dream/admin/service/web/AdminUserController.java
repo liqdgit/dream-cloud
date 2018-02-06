@@ -4,6 +4,7 @@ import com.dream.admin.service.api.admin.AdminUserServiceApi;
 import com.dream.admin.service.service.AdminUserService;
 import com.dream.bean.admin.AdminUser;
 import com.dream.core.common.annotation.DreamRequest;
+import com.dream.core.common.annotation.DreamRequestType;
 import com.dream.core.common.wrapper.WrapMapper;
 import com.dream.core.common.wrapper.Wrapper;
 import org.slf4j.Logger;
@@ -27,7 +28,7 @@ public class AdminUserController implements AdminUserServiceApi {
     @Autowired
     private AdminUserService adminUserService;
 
-    @DreamRequest
+    @DreamRequest(type = DreamRequestType.SERVICE)
     @Override
     public Wrapper<List<AdminUser>> queryList() {
         try {
