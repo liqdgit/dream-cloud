@@ -33,11 +33,12 @@ public abstract class DreamAuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (api()) {
-            boolean check = checkApi(request, response);
-            if (!check) {
-                return false;
-            }
+        if (!api()) {
+            return pre(request, response, handler);
+        }
+        boolean check = checkApi(request, response);
+        if (!check) {
+            return false;
         }
         return pre(request, response, handler);
     }

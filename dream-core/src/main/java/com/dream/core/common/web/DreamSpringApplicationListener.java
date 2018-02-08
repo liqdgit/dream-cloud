@@ -120,10 +120,13 @@ public abstract class DreamSpringApplicationListener implements ApplicationListe
                 Map<RequestMappingInfo, HandlerMethod> mappingLookup = requestMappingHandlerMapping.getHandlerMethods();
                 List<Method> methodList = LoadApiData.getApi(getPkgName());
                 ArrayList<ApiManager> apiManagerList = LoadApiData.format(methodList, mappingLookup);
-                DreamZookeeperNode apiManagerNode = new DreamZookeeperNode(appNameManager.getApplicationName(), DreamZookeeperNode.NodePrefix.API_MANAGER.getNodePrefix());
+
+                DreamZookeeperNode apiManagerNode = new DreamZookeeperNode(appNameManager.getApplicationName(),
+                        DreamZookeeperNode.NodePrefix.API_MANAGER.getNodePrefix());
                 ZookeeperClientFactory clientFactory = new ZookeeperClientFactory(constant.getZookeeperUrl(), "");
                 CuratorFramework client = clientFactory.getClient();
                 ZooKeeperNodeOperation nodeOperation = new ZooKeeperNodeOperation(client);
+
                 String apiNode = apiManagerNode.toString();
                 try {
                     Stat apiStat = nodeOperation.checkExists(apiNode);
