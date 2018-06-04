@@ -30,7 +30,7 @@
 
         <dependency>
             <groupId>com.dream.come</groupId>
-            <artifactId>dream.bean</artifactId>
+            <artifactId>dream-bean</artifactId>
             <version>${dream.bean.version}</version>
         </dependency>
 
